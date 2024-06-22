@@ -32,3 +32,7 @@ export const charmander: Pokemon = {
     baseExperience: 62
 }
 console.log(charmander);
+
+export const pokemons: Pokemon[] = [];
+pokemons.push(charmander, bulbasaur);
+console.log(pokemons);
