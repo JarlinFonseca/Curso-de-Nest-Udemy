@@ -1,3 +1,4 @@
+import axios from 'axios';
 /**
  * Forma larga de definir una clase en TypeScript
  */
@@ -53,7 +54,15 @@ export class PokemonShort {
 
     private speak(): void {
         console.log(`${ this.name }, ${ this.name }`);
-    } 
+    }
+    
+    async getMoves(){
+       // const moves = 10;
+       //Desestructuración de objetos
+        const { data } =  await axios.get(`https://pokeapi.co/api/v2/pokemon/4`);
+       
+        return data.moves.length;
+    }
 }
 
 // Nombre de pokemon legendario
@@ -63,4 +72,8 @@ console.log(mewtwo);
 console.log(mewtwo.imageUrl)
 
 mewtwo.scream();
+const moves = await mewtwo.getMoves();
+
+console.log(moves);
+// console.log(moves + 10);
 // mewtwo.speak();
