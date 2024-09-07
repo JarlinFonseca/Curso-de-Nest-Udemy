@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Move, PokeapiResponse } from '../interfaces/pokeapi-response.interface';
 /**
  * Forma larga de definir una clase en TypeScript
  */
@@ -56,12 +57,13 @@ export class PokemonShort {
         console.log(`${ this.name }, ${ this.name }`);
     }
     
-    async getMoves(){
+    async getMoves(): Promise<Move[]>{
        // const moves = 10;
        //Desestructuración de objetos
-        const { data } =  await axios.get(`https://pokeapi.co/api/v2/pokemon/4`);
-       
-        return data.moves.length;
+        const { data } =  await axios.get<PokeapiResponse>(`https://pokeapi.co/api/v2/pokemon/4`);
+        console.log(data.moves);
+        console.log(data.moves[0].move.name);
+        return data.moves;
     }
 }
 
@@ -74,6 +76,6 @@ console.log(mewtwo.imageUrl)
 mewtwo.scream();
 const moves = await mewtwo.getMoves();
 
-console.log(moves);
+console.log(moves.length);
 // console.log(moves + 10);
 // mewtwo.speak();
