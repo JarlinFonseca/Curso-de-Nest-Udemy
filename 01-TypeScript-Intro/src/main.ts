@@ -4,7 +4,8 @@ import './style.css'
 import typescriptLogo from './typescript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.ts'
-import { charmander, mewtwo } from './bases/03-classes.ts'
+// import { charmander, mewtwo } from './bases/03-classes.ts'
+import { charmander } from './bases/04-injection.ts'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -19,8 +20,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <h2>Pokemon: ${JSON.stringify(bulbasaur)}</h2>
     <h2>Pokemons: ${JSON.stringify(pokemons)}</h2>
     <h3>${JSON.stringify(charmander)}</h3>
-    <h3>${charmander.getName()}</h3>
-    <h3>${mewtwo.name} && ${JSON.stringify(mewtwo)}</h3>
     <div class="card">
       <button id="counter" type="button"></button>
     </div>
